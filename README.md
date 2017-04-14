@@ -13,12 +13,11 @@ Web application with MySQL database.
 
 ## Screen shots
 
-
+![alt tag](https://raw.githubusercontent.com/aemulare/BestFriendEver/master/BestFriendEver-screen-shot.png)
 
 ## Author
 
-* Maria Romanova
-  (https://github.com/aemulare)
+* [Maria Romanova](https://github.com/aemulare)
 
 ## Links
 
