@@ -4,7 +4,7 @@ require 'vendor/autoload.php';
 //Set SendGrid Credentials
 
 
-$sendgrid = new SendGrid('MyKey');
+$sendgrid = new SendGrid('SENDGRID_API_KEY');
 
 
 //Create a new SendGrid Email object
@@ -24,7 +24,7 @@ $sql = "SELECT id FROM form_submissions";
 $result = $conn->query($sql);
 
 // Set email where form submissions will be send
-$myemail = "MyEmail@example.com";
+$myemail = "maryika@ymail.com";
 
 
 // Receive and sanitize input
@@ -70,7 +70,7 @@ function msg()
     return $_POST['message'];
 }
 
-//include "info.php";
+include "info.php";
 
 
 //// More headers
