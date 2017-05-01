@@ -1,12 +1,12 @@
 <?php
 function OpenDBconnection()
 {
-//    $servername = "localhost";
+//    $servername = "127.0.0.1:8889";
 //    $username = "root";
 //    $password = "root";
 //    $database = "bestfriendever";
 
-    $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+     $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 
     $servername = $url["host"];
     $username = $url["user"];

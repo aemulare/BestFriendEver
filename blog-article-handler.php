@@ -73,7 +73,7 @@ while ($list = $result->fetch_assoc())
                 <img class=\"img-responsive img-border img-full\" src=\"" . imageSource($list["picture"]) . "\" alt=\"\">
                 <h2>" . $list["title"] ."
                     <br>
-                    <small>" . article_date($list["date"] ) . "</small>
+                    <small>" . article_date($list["created_at"] ) . "</small>
                 </h2>
                 <p>". $list["content"] ."</p>
                 <a href=blog.php class=\"btn btn-default btn-lg\">Back to articles</a>

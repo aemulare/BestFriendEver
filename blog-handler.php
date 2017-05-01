@@ -4,7 +4,7 @@ include 'db_connection.php';
 // check if field 'picture' for null
 function imageSource($picture)
 {
-    return $picture ? "img/" . $picture : "http://placehold.it/800x400";
+    return $picture ? "img/" . $picture : "https://unsplash.it/800/400";
 }
 
 function article_date($date)
@@ -61,7 +61,7 @@ if ($currentpage < 1) {
 $offset = ($currentpage - 1) * $rowsperpage;
 
 // get the info from the db
-$sql = "SELECT * FROM articles ORDER BY date DESC LIMIT $offset , $rowsperpage";
+$sql = "SELECT * FROM articles ORDER BY created_at DESC LIMIT $offset , $rowsperpage";
 $result = $conn->query($sql) or trigger_error("SQL", E_USER_ERROR);
 
 // while there are rows to be fetched...
@@ -72,7 +72,7 @@ while ($list = $result->fetch_assoc())
                 <img class=\"img-responsive img-border img-full\" src=\"" . imageSource($list["picture"]) . "\" alt=\"\">
                 <h2>" . $list["title"] ."
                     <br>
-                    <small>" . article_date($list["date"] ) . "</small>
+                    <small>" . article_date($list["created_at"] ) . "</small>
                 </h2>
                 <p>". truncate_article($list["content"]) ."</p>
                 <a href=\"blog_article.php?articleId=".$list["id"]. "\" class=\"btn btn-default btn-lg\">Read More</a>

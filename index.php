@@ -17,7 +17,7 @@
 $conn = OpenDBconnection();
 
 // select slides for 3 most recent blog articles
-$sql = "SELECT * FROM articles ORDER BY date DESC LIMIT 3";
+$sql = "SELECT * FROM articles ORDER BY created_at DESC LIMIT 3";
 $result = $conn->query($sql);
 $slides = array();
 
