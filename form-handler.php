@@ -36,7 +36,7 @@ $message = mysqli_real_escape_string($conn, $_POST['message']);
 if (!mysqli_query($conn,$sql)) {
     die('Error: ' . mysqli_error($conn));
 }
-echo "1 record added";
+//echo "1 record added";
 
 // write to db
 $sql = "INSERT INTO form_submissions (name,phone,email,message) VALUES ('$name', '$phone','$email', '$message')";
