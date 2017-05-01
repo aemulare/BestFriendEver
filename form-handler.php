@@ -70,7 +70,7 @@ function msg()
     return $_POST['message'];
 }
 
-include "info.php";
+//include "info.php";
 
 
 //// More headers
