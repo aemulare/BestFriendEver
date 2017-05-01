@@ -49,7 +49,7 @@ $info = "Thank you for your form submission. This is the copy of your message.\n
 
 // Initialize the SendGrid object with your SendGrid credentials
 
-$sendgrid = new SendGrid('SENDGRID_API_KEY');
+$sendgrid = new SendGrid(getenv("SENDGRID_API_KEY"));
 
 //Create a new SendGrid Email object
 $email = new SendGrid\Email();
