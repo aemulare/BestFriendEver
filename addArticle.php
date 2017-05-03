@@ -12,14 +12,7 @@ $date = date('Y-m-d H:i:s');
 
 // write to db
 $sql = "INSERT INTO articles (title, content, picture, user_id, created_at) VALUES ('$title', '$content', null,  19, '$date')";
-
 $result = $conn->query($sql);
-
-
-
-if (!mysqli_query($conn,$sql)) {
-    die('Error: ' . mysqli_error($conn));
-}
 
 CloseDBconnection($conn);
 

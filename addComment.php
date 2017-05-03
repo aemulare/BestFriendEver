@@ -13,9 +13,6 @@ $articleID = $_POST['article_id'];
 $sql = "INSERT INTO comments (user_id, comment, article_id) VALUES (1, '$comment',$articleID)";
 $result = $conn->query($sql);
 
-if (!mysqli_query($conn,$sql)) {
-    die('Error: ' . mysqli_error($conn));
-}
 
 CloseDBconnection($conn);
 
