@@ -4,8 +4,9 @@ include 'db_connection.php';
 // check if field 'picture' for null
 function imageSource($picture)
 {
-    return $picture ? "img/" . $picture : "https://unsplash.it/800/400";
+    return $picture ? "img/" . $picture : "http://placehold.it/800x400";
 }
+
 
 function article_date($date)
 {

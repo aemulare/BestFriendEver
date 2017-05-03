@@ -7,6 +7,8 @@ function imageSource($picture)
     return $picture ? "img/" . $picture : "http://placehold.it/800x400";
 }
 
+
+
 function article_date($date)
 {
     $date = new DateTime($date);
