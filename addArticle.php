@@ -24,7 +24,7 @@ if (!mysqli_query($conn,$sql)) {
 CloseDBconnection($conn);
 
 // Redirect back to blog
-$location = 'Location: http://localhost:2222/BestFriendEver/blog.php';
+$location = 'Location: https://bestfriendever.herokuapp.com/blog.php';
 header($location, false);
 
 ?>
