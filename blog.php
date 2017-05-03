@@ -15,9 +15,11 @@
         <div class="box">
             <div class="col-lg-12">
                 <hr>
-                <h2 class="intro-text text-center">Our
-                    <strong>blog</strong>
-                </h2>
+                    <div class="col-12-lg text-center">
+                        <h2 class="intro-text"><strong>Welcome</strong> to Our <strong>blog</strong></h2>
+                        <a href="addArticle.php" class="btn btn-default btn-lg">Add Article</a>
+                    </div>
+
                 <hr>
             </div>
 
