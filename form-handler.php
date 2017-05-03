@@ -15,9 +15,6 @@ $conn = OpenDBconnection();
 $sql = "SELECT id FROM form_submissions";
 $result = $conn->query($sql);
 
-// Set email where form submissions will be send
-$myemail = "maryika@ymail.com";
-
 
 // Receive and sanitize input
 $name = mysqli_real_escape_string($conn, $_POST['name']);
@@ -34,6 +31,10 @@ if (!mysqli_query($conn,$sql)) {
 $sql = "INSERT INTO form_submissions (name,phone,email,message) VALUES ('$name', '$phone','$contact_email', '$message')";
 $result = $conn->query($sql);
 
+
+// Set email where form submissions will be send
+$myemail = "maryika@ymail.com";
+
 // Always set content-type when sending HTML email
 $headers = "MIME-Version: 1.0" . "\r\n";
 $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
@@ -43,12 +44,8 @@ $info = "Thank you for your form submission. This is the copy of your message.\n
 
 
 //SENDGRID ======================================================
-//Set SendGrid Credentials
 
-
-
-// Initialize the SendGrid object with your SendGrid credentials
-
+// Initialize the SendGrid object with SendGrid credentials
 $sendgrid = new SendGrid(getenv("SENDGRID_API_KEY"));
 
 //Create a new SendGrid Email object
@@ -68,15 +65,7 @@ function msg()
     return $_POST['message'];
 }
 
-//include "info.php";
 
-
-//// More headers
-//$headers .= 'From: <webmaster@bestfriendever.com>' . "\r\n";
-////$headers .= 'Cc: myboss@example.com' . "\r\n";
-//
-//mail($to,$subject,$messg,$headers);
-//mail($email,"Thank you for your form submission. This is the copy of your message.",$messg,$headers);
 
 CloseDBconnection($conn);
 

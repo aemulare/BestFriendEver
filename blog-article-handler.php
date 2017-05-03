@@ -36,10 +36,13 @@ while ($list = $result->fetch_assoc())
                 <hr>
                 <a href=blog.php class=\"btn btn-default btn-lg\">Back to articles</a>
             </div>";
-    echo "<div class=\"row\">
+
+} // end while
+
+echo "<div class=\"row\">
     <div class=\"box\">
         <div class=\"col-lg-12\">
-            <form role=\"form\" action=\"blog_article.php?articleId=$articleID\" method=\"post\">
+            <form role=\"form\" action=\"addComment.php\" method=\"post\">
                 <div class=\"row\">
                     <div class=\"clearfix\"></div>
                     <div class=\"form-group col-lg-12\">
@@ -47,6 +50,7 @@ while ($list = $result->fetch_assoc())
                         <textarea class=\"form-control\" rows=\"6\" input type=\"text\" name=\"comment\" ></textarea>
                     </div>
                     <div class=\"form-group col-lg-12\">
+                        <input type=\"hidden\" name=\"article_id\" value=$articleID>
                         <button type=\"submit\" class=\"btn btn-default\">Submit</button>
                     </div>
                 </div>
@@ -54,7 +58,6 @@ while ($list = $result->fetch_assoc())
         </div>
     </div>
 </div>";
-} // end while
 
 
 include 'viewComments.php';
