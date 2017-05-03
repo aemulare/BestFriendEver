@@ -1,6 +1,8 @@
 <?php
 
 include "db_connection.php";
+include 'common_functions.php';
+
 $conn = OpenDBconnection();
 
 // Receive and sanitize input
@@ -16,9 +18,6 @@ $result = $conn->query($sql);
 
 CloseDBconnection($conn);
 
-// Redirect back to blog article page
-$location = 'Location: https://bestfriendever.herokuapp.com/blog_article.php?articleId='.$articleID;
-header($location, false);
-
+RedirectTo('blog_article.php?articleId='.$articleID);
 ?>
 

@@ -7,6 +7,7 @@ $conn = OpenDBconnection();
 $title = mysqli_real_escape_string($conn, $_POST['title']);
 $content = mysqli_real_escape_string($conn, $_POST['content']);
 //$picture = mysqli_real_escape_string($conn, $_POST['picture']);
+
 $userid = $_POST['user_id'];
 $date = date('Y-m-d H:i:s');
 

@@ -1,12 +1,6 @@
 <?php
 include 'db_connection.php';
-
-// check if field 'picture' for null
-function imageSource($picture)
-{
-    return $picture ? "img/" . $picture : "img/placeholder.jpg";
-}
-
+include 'common_functions.php';
 
 function article_date($date)
 {
@@ -14,16 +8,24 @@ function article_date($date)
     return $date->format('F d, Y');
 }
 
+// display only 365 symbols for big articles
 function truncate_article($string)
 {
     return $truncated = (strlen($string) > 365) ? substr($string, 0, 365) . '...' : $string;
 }
 
+
+function isTruncated($string)
+{
+    if(strlen($string) > 365) return true;
+}
+
+
+
+
 $conn = OpenDBconnection();
 
-
 // ********** PAGING SCRIPT ******************************************************************
-
 
 // find out how many rows are in the table
 $sql = "SELECT COUNT(*) AS SUM FROM articles";
@@ -62,8 +64,12 @@ if ($currentpage < 1) {
 $offset = ($currentpage - 1) * $rowsperpage;
 
 // get the info from the db
-$sql = "SELECT * FROM articles ORDER BY created_at DESC LIMIT $offset , $rowsperpage";
+$sql = "SELECT a.id, a.title, a.content, a.picture, a.user_id, a.created_at, usr.nickname 
+        FROM articles as a
+        INNER JOIN users as usr ON a.user_id = usr.id
+        ORDER BY a.created_at DESC LIMIT   $offset , $rowsperpage";
 $result = $conn->query($sql) or trigger_error("SQL", E_USER_ERROR);
+
 
 // while there are rows to be fetched...
 while ($list = $result->fetch_assoc())
@@ -73,13 +79,14 @@ while ($list = $result->fetch_assoc())
                 <img class=\"img-responsive img-border img-full\" src=\"" . imageSource($list["picture"]) . "\" alt=\"\">
                 <h2>" . $list["title"] ."
                     <br>
-                    <small>" . article_date($list["created_at"] ) . "</small>
+                    <small>by <strong>".$list["nickname"]."</strong>,&nbsp;". article_date($list["created_at"]). "</small>
                 </h2>
                 <p>". truncate_article($list["content"]) ."</p>
                 <a href=\"blog_article.php?articleId=".$list["id"]. "\" class=\"btn btn-default btn-lg\">Read More</a>
-                <hr>
+               <hr>
             </div>";
 } // end while
+
 
 
 

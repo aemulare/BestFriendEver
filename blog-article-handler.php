@@ -1,12 +1,6 @@
 <?php
 include 'db_connection.php';
-
-// check if field 'picture' for null
-function imageSource($picture)
-{
-    return $picture ? "img/" . $picture : "img/placeholder.jpg";
-}
-
+include 'common_functions.php';
 
 
 function article_date($date)
@@ -16,7 +10,6 @@ function article_date($date)
 }
 
 $conn = OpenDBconnection();
-
 
 // get the info from the db
 $articleID = htmlspecialchars($_GET["articleId"]);

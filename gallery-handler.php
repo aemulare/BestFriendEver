@@ -1,12 +1,6 @@
 <?php
 include 'db_connection.php';
-
-// check if field 'picture' for null
-function imageSource($picture)
-{
-   return $picture ? "img/" . $picture : "http://placehold.it/750x450";
-}
-
+include 'common_functions.php';
 
 $conn = OpenDBconnection();
 

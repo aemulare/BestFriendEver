@@ -4,7 +4,7 @@ CREATE TABLE `articles` (
   `content` text NOT NULL,
   `picture` varchar(128) DEFAULT NULL,
   `user_id` int(11) unsigned NOT NULL,
-  `created_at` datetime NOT NULL DEFAULT NOW(),
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`user_id`) REFERENCES users (`id`)
 );

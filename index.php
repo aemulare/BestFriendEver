@@ -10,9 +10,11 @@
 
 <?php include 'Navigation.html' ?>
 <?php include 'db_connection.php';?>
-
+<?php include 'common_functions.php' ?>
 
 <?php
+
+
 /******** Carousel Controller ****************************/
 $conn = OpenDBconnection();
 
@@ -46,13 +48,13 @@ CloseDBconnection($conn);
                     echo "<!-- Wrapper for slides -->
                     <div class=\"carousel-inner\">
                         <div class=\"item active\">
-                            <img class=\"img-responsive img-full\" src=\"img/" . $slides[0]. "\" alt=\"\">
+                            <img class=\"img-responsive img-full\" src=\"" . imageSource($slides[0]). "\" alt=\"\">
                         </div>
                         <div class=\"item\">
-                            <img class=\"img-responsive img-full\" src=\"img/" . $slides[1]. "\" alt=\"\">
+                            <img class=\"img-responsive img-full\" src=\"" . imageSource($slides[1]). "\" alt=\"\">
                         </div>
                         <div class=\"item\">
-                            <img class=\"img-responsive img-full\" src=\"img/" . $slides[2]. "\" alt=\"\">
+                            <img class=\"img-responsive img-full\" src=\"" . imageSource($slides[2]). "\" alt=\"\">
                         </div>
                     </div>"
                     ?>
