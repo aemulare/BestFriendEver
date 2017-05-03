@@ -1,8 +1,10 @@
 <?php
+
 // get the info from the db
 $sql = "SELECT cm.id, users.nickname, cm.comment, cm.article_id, cm.created_at FROM comments as cm 
         INNER JOIN users ON cm.user_id = users.id 
-        WHERE cm.article_id =" . htmlspecialchars($_GET["articleId"]);
+        WHERE cm.article_id =" . htmlspecialchars($_GET["articleId"]).
+" ORDER BY cm.created_at";
 $result = $conn->query($sql) or trigger_error("SQL", E_USER_ERROR);
 
 
