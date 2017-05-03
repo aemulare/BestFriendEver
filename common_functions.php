@@ -18,5 +18,10 @@ function RedirectTo($dest)
 }
 
 
+function pluralize($count, $singular, $plural = false)
+{
+    if (!$plural) $plural = $singular . 's';
 
+    return ($count == 1 ? $singular : $plural) ;
+}
 ?>

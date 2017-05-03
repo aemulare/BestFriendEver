@@ -6,5 +6,5 @@ CREATE TABLE `comments` (
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   FOREIGN KEY (`user_id`) REFERENCES users (`id`),
-  FOREIGN KEY (`article_id`) REFERENCES articles (`id`)
+  FOREIGN KEY (`article_id`) REFERENCES articles (`id`) ON DELETE CASCADE ON UPDATE CASCADE
 );

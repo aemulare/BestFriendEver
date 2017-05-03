@@ -17,8 +17,7 @@ $result = $conn->query($sql);
 
 CloseDBconnection($conn);
 
-// Redirect back to blog
-$location = 'Location: https://bestfriendever.herokuapp.com/blog.php';
-header($location, false);
+RedirectTo('blog.php');
+
 
 ?>
