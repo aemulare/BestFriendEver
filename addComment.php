@@ -14,8 +14,7 @@ $articleID = $_POST['article_id'];
 // write to db
 $sql = "INSERT INTO comments (user_id, comment, article_id) VALUES (1, '$comment',$articleID)";
 $result = $conn->query($sql);
-
-
+$result->close();
 CloseDBconnection($conn);
 
 RedirectTo('blog_article.php?articleId='.$articleID);
