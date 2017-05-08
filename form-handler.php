@@ -29,7 +29,7 @@ $result = $conn->query($sql);
 
 
 // Set email where form submissions will be send
-$myemail = "maryika@ymail.com";
+$myemail = "maryikapro@gmail.com";
 
 // Always set content-type when sending HTML email
 $headers = "MIME-Version: 1.0" . "\r\n";

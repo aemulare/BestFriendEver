@@ -4,7 +4,7 @@ CREATE TABLE `users` (
   `password` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL UNIQUE,
   `nickname` varchar(30) NOT NULL UNIQUE,
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `activation_token` nvarchar(255),
   `avatar` varchar(255),
   PRIMARY KEY (`id`)

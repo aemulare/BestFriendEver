@@ -25,7 +25,7 @@
                 <hr>
                 <h1>&nbsp;</h1>
 
-                <form role="form" action="info.php" method="post">
+                <form role="form" action="addUser.php" method="post">
                     <div class="row">
                         <div class="form-group col-lg-4">
                             <label>Full Name</label>
@@ -56,7 +56,7 @@
                             <input type="password" name="password_match" class="form-control" placeholder="**********">
                         </div>
                         <div class="form-group col-lg-12">
-                            <input type="hidden" name="save" value="contact">
+<!--                            <input type="hidden" name="addUsr" value="user">-->
                             <button type="submit" class="btn btn-default">Submit</button>
                         </div>
                     </div>

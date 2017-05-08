@@ -23,4 +23,11 @@ function pluralize($count, $singular, $plural = false)
     if (!$plural) $plural = $singular . 's';
     return ($count == 1 ? $singular : $plural) ;
 }
+
+
+
+function isValidEmail($email)
+{
+    return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
+}
 ?>
