@@ -1,17 +1,17 @@
 <?php
 function OpenDBconnection()
 {
-//    $servername = "127.0.0.1:8889";
-//    $username = "root";
-//    $password = "root";
-//    $database = "bestfriendever";
+    $servername = "127.0.0.1:8889";
+    $username = "root";
+    $password = "root";
+    $database = "bestfriendever";
 
-    $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-
-    $servername = $url["host"];
-    $username = $url["user"];
-    $password = $url["pass"];
-    $database = substr($url["path"], 1);
+//    $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+//
+//    $servername = $url["host"];
+//    $username = $url["user"];
+//    $password = $url["pass"];
+//    $database = substr($url["path"], 1);
 
 // Create connection
     $conn = new mysqli($servername, $username, $password, $database);

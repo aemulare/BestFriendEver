@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<<?php include 'Header.html' ?>
+<?php require_once('Header.html') ?>
+
 
 <body>
 
@@ -25,39 +26,54 @@
                 <hr>
                 <h1>&nbsp;</h1>
 
-                <form role="form" action="addUser.php" method="post">
+                <div class="bs-callout bs-callout-warning hidden">
+                    <h4>This form seems to be invalid!</h4>
+                </div>
+
+                <div class="bs-callout bs-callout-info hidden">
+                    <h4>Yay! Everything seems to be ok.</h4>
+                </div>
+
+                <form id="registration" role="form" action="addUser.php" data-parsley-validate="" method="post">
+<!--                <form role="form" action="--><?php //echo htmlspecialchars($_SERVER["PHP_SELF"]);?><!--" method="post">-->
                     <div class="row">
                         <div class="form-group col-lg-4">
-                            <label>Full Name</label>
-                            <input type="text" name="username" class="form-control" placeholder="John Doe">
+                            <label for="username">Full Name *</label>
+                            <input type="text" name="username" id="username" class="form-control" data-parsley-pattern="/^[a-zA-Z .'-]+$/i" required="">
                         </div>
                         <p><br><small>Your full name will not be shared.</small></p>
                         <div class="clearfix"></div>
                         <div class="form-group col-lg-4">
-                            <label>Nickname</label>
-                            <input type="text" name="nickname" class="form-control" placeholder="Doglover123">
+                            <label for="nickname">Nickname *</label>
+                            <input type="text" name="nickname" id="nickname" class="form-control" data-parsley-pattern="/^[a-zA-Z0-9.'-]+$/i" required="">
                         </div>
                         <p><br><small>How do you prefer being called? This name will be posted under your articles and comments.</small></p>
                         <div class="clearfix"></div>
                         <div class="form-group col-lg-4">
-                            <label>Email</label>
-                            <input type="email" name="email" class="form-control" placeholder="someone@example.com">
+                            <label for="email">Email *</label>
+                            <input type="email" name="email" id="email" class="form-control" data-parsley-type="email" required="">
                         </div>
                         <p><br><small>Your email address will be used as your login.</small></p>
                         <div class="clearfix"></div>
                         <div class="form-group col-lg-4">
-                            <label>Your password</label>
-                            <input type="password" name="password" class="form-control" placeholder="**********">
+                            <label for="pwd">Your password *</label>
+                            <input type="password" name="password" id="pwd" class="form-control" required=""
+                                   data-parsley-trigger="keyup" data-parsley-minlength="8" data-parsley-maxlength="12"
+                                   data-parsley-minlength-message="Enter at least 8 characters"
+                                   data-parsley-validation-threshold="4">
                         </div>
                         <p><br><small>8-12 symbols long, letters and numbers only.</small></p>
                         <div class="clearfix"></div>
                         <div class="form-group col-lg-4">
-                            <label>Please confirm your password</label>
-                            <input type="password" name="password_match" class="form-control" placeholder="**********">
+                            <label for="pwd_match">Please confirm your password *</label>
+                            <input type="password" name="password_match" id="pwd_match" class="form-control" required=""
+                                   data-parsley-trigger="keyup" data-parsley-minlength="8" data-parsley-maxlength="12"
+                                   data-parsley-minlength-message="Enter at least 8 characters"
+                                   data-parsley-validation-threshold="4" data-parsley-equalto="#pwd">
                         </div>
                         <div class="form-group col-lg-12">
 <!--                            <input type="hidden" name="addUsr" value="user">-->
-                            <button type="submit" class="btn btn-default">Submit</button>
+                            <input type="submit" class="btn btn-default" value="Submit">
                         </div>
                     </div>
                 </form>
@@ -70,6 +86,20 @@
 
 <?php include 'Footer.html' ?>
 <?php include 'Scripts.html' ?>
+
+<!-- form validation scripts -->
+<script type="text/javascript">
+    $(function () {
+        $('#registration').parsley().on('field:validated', function() {
+            var ok = $('.parsley-error').length === 0;
+            $('.bs-callout-info').toggleClass('hidden', !ok);
+            $('.bs-callout-warning').toggleClass('hidden', ok);
+        })
+            .on('form:submit', function() {
+                return true;
+            });
+    });
+</script>
 
 </body>
 

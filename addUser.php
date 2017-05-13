@@ -2,32 +2,32 @@
 
 include "db_connection.php";
 include 'common_functions.php';
-$conn = OpenDBconnection();
 
+
+$username = $nickname = $email = $password = $password_match = "";
 // Receive and sanitize input
-$username = mysqli_real_escape_string($conn, $_POST['username']);
-$nickname = mysqli_real_escape_string($conn, $_POST['nickname']);
-$email = mysqli_real_escape_string($conn, $_POST['email']);
-$password = mysqli_real_escape_string($conn, $_POST['password']);
-$password_match = mysqli_real_escape_string($conn, $_POST['password_match']);
-$date = date('Y-m-d H:i:s');
+if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST) )
+{
+    $username = test_input($_POST['username']);
+    $nickname = test_input($_POST['nickname']);
+    $email = test_input($_POST['email']);
+    $password = test_input($_POST['password']);
+    $password_match = test_input($_POST['password_match']);
+    $date = date('Y-m-d H:i:s'); // set the date as now
 
-if($password !== $password_match)
-    echo "The password doesn't match";
+    if($password === $password_match && isValidEmail($email))
+    {
+        // write to db
+        $pwd = sha1($password);
+        $conn = OpenDBconnection();
+        $sql = "INSERT INTO users (username, nickname, email, password) VALUES ('$username', '$nickname', '$email', '$pwd')";
+        $result = $conn->query($sql);
 
-if(!isValidEmail($email))
-    echo "Email is not valid";
-
-
-
-// write to db
-$sql = "INSERT INTO users (username, nickname, email, password) VALUES ('$username', '$nickname', '$email', '$password')";
-$result = $conn->query($sql);
-
-
-CloseDBconnection($conn);
-
-
-RedirectTo('registration_success.php');
+        CloseDBconnection($conn);
+        RedirectTo('registration_success.php');
+    }
+}
+else
+RedirectTo('registration.php');
 
 ?>

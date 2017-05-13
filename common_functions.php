@@ -18,6 +18,17 @@ function RedirectTo($dest)
 }
 
 
+// sanitizes input
+function test_input($data)
+{
+    $data = trim($data);
+    $data = stripslashes($data);
+    $data = htmlspecialchars($data);
+    return $data;
+}
+
+
+// displays word in plural if count > 1 (ex. 2 comments)
 function pluralize($count, $singular, $plural = false)
 {
     if (!$plural) $plural = $singular . 's';
@@ -25,9 +36,21 @@ function pluralize($count, $singular, $plural = false)
 }
 
 
-
+// email validation
 function isValidEmail($email)
 {
     return filter_var($email, FILTER_VALIDATE_EMAIL) !== false;
 }
+
+
+
+// last id from database table
+function lasdID()
+{
+    $stmt = $this->conn->lastInsertId();
+    return $stmt;
+}
+
+
+
 ?>
