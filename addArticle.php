@@ -1,6 +1,6 @@
 <?php
 
-include "db_connection.php";
+
 include 'common_functions.php';
 $conn = OpenDBconnection();
 

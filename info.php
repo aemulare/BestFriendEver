@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include 'form-handler.php'?>
-<?php include 'Header.html' ?>
+<?php include 'contact-form-handler.php' ?>
+<?php include 'header.html' ?>
 
 
 <body>
 <div class="brand">Best Friend Ever</div>
 <div class="address-bar">Everything about dogs</div>
 
-<?php include 'Navigation.html' ?>
+<?php include 'navigation.html' ?>
 
 <div class="container">
     <div class="row">
@@ -21,7 +21,7 @@
                 </h2>
                 <hr>
                 <p class="text-center">Here is the copy of your message:
-                    <div class="text-success text-center">
+                    <div class="text-success text-center" style="font-size: x-large">
                     <strong>
                     <?php echo msg(); ?>
                     </strong>
@@ -38,6 +38,6 @@
 </div>
 
 
-<?php include 'Footer.html' ?>
+<?php include 'footer.html' ?>
 <?php include 'Scripts.html' ?>
 </body>

@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php include 'Header.html' ?>
+<?php include 'header.html' ?>
 
 <body>
 
 <div class="brand">Best Friend Ever</div>
 <div class="address-bar">Everything about dogs</div>
 
-<?php include 'Navigation.html' ?>
+<?php include 'navigation.html' ?>
 
 <div class="container">
     <div class="row">
@@ -39,7 +39,7 @@
 </div>
 <!-- /.container -->
 
-<?php include 'Footer.html' ?>
+<?php include 'footer.html' ?>
 <?php include 'Scripts.html' ?>
 
 </body>

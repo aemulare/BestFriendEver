@@ -6,7 +6,7 @@ require 'vendor/autoload.php';
 
 
 // Emails form data to you and the person submitting the form and adds it to a database
-include "db_connection.php";
+include 'common_functions.php';
 
 // Connect to db
 $conn = OpenDBconnection();

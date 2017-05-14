@@ -1,6 +1,5 @@
 <?php
 
-include "db_connection.php";
 include 'common_functions.php';
 
 
@@ -17,17 +16,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST) )
 
     if($password === $password_match && isValidEmail($email))
     {
-        // write to db
-        $pwd = sha1($password);
         $conn = OpenDBconnection();
+
+        // encrypt password
+        $pwd = sha1($password);
+
+        // write to db
         $sql = "INSERT INTO users (username, nickname, email, password) VALUES ('$username', '$nickname', '$email', '$pwd')";
         $result = $conn->query($sql);
 
         CloseDBconnection($conn);
-        RedirectTo('registration_success.php');
+        RedirectTo('registration_success.php?nickname='.$nickname);
     }
 }
 else
-RedirectTo('registration.php');
+RedirectTo('form_registration.php');
 
 ?>

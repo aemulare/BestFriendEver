@@ -1,5 +1,5 @@
 <?php
-include 'db_connection.php';
+include 'common_functions.php';
 
 session_start();        // Starting Session
 $error='';              // Variable To Store Error Message

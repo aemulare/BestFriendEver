@@ -29,15 +29,15 @@ if(!isset($_GET["nickname"]))
                     <strong>Welcome to BestFriendEver!</strong>
                 </h2>
                 <hr>
-                <p class="text-center">Your user account has been created successfully.</p>
-                <div class="text-success text-center" style="font-size: x-large">
+                <p class="text-center">Your user account registration failed.</p>
+                <div class="text-danger text-center">
                     <strong>
-                        <?php echo "You are registered with nickname: ". $_GET["nickname"]; ?>
+                        <?php echo "The email ". $_GET["email"]. " already exists."; ?>
                     </strong>
                 </div>
-                <br>
-                <p class="text-center">We appreciate that you’ve chosen to join us.
-                    <br>Now you can log in and start writing articles and comments.</p>
+
+                <p class="text-center">Please try again with different email.
+                    <br>You can log in and start writing articles and comments after registration only.</p>
                 <hr>
                 <p class="text-center">
                     <a href="index.php" class="btn btn-default btn-lg">Back to Home page</a>
