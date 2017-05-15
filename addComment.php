@@ -20,7 +20,6 @@ if(is_logged())
     $result = $conn->query($sql);
 
     CloseDBconnection($conn);
-
     RedirectTo('article.php?articleId='.$articleID);
 }
 

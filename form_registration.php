@@ -104,8 +104,9 @@
                     <strong>form</strong>
                 </h2>
                 <hr>
-                <p class="text-center">All the fields below are required.<br>After submitting this form you will receive an email
-                    with activation link. Please, follow that link in order to finish your registration.<br></p>
+                <p class="text-center">All the fields below are required.
+                    <br>After registration you can log in and start writing articles and comments.<br>
+                Also you will be able to read comments of other users.</p>
                 <hr>
                 <h1>&nbsp;</h1>
 
@@ -170,7 +171,7 @@
                         </div>
                         <div class="form-group col-lg-12">
 <!--                            <input type="hidden" name="addUsr" value="user">-->
-                            <input type="submit" class="btn btn-default" value="Submit">
+                            <input type="submit" class="btn btn-primary" value="Submit">
                         </div>
                     </div>
                 </form>
