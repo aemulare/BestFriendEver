@@ -1,7 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<?php include 'header.html' ?>
+<?php session_start(); ?>
+<?php include 'header.php' ?>
 
 <body>
 

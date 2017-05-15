@@ -1,5 +1,13 @@
+<?php session_start();
+require_once 'user_validation.php';
+require_once 'common_functions.php';
 
-<?php require_once 'header.html' ?>
+if(!is_logged())
+    RedirectTo('index.php');
+
+?>
+
+<?php require_once 'header.php' ?>
 
 <body>
 
@@ -9,11 +17,10 @@
 <?php include 'navigation.php' ?>
 
 <?php
-include 'common_functions.php';
 
 $num_comments = $num_articles = $email = $username = $nickname = $member_since = $num_articles = $num_comments = null;
 
-if(isset($_COOKIE['user_id'])) {
+if(is_logged()) {
     $id = $_COOKIE['user_id'];
     $conn = OpenDBconnection();
 

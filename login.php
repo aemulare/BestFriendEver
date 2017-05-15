@@ -2,7 +2,7 @@
 include 'common_functions.php';
 session_start();
 
-$error='';                  // variable to store error message
+$error='';
 $id = $password = $email = "";
 
 
@@ -21,13 +21,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST) )
         if ($result !== false)
         {
             $_SESSION['time'] = time();
+            $_SESSION['user_status'] = "authorized";
+
             $cookie_name = "user_id";
             $cookie_value = $id;
             setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
-
-            $cookie_name = "user_status";
-            $cookie_value = "authorized";
-            setcookie($cookie_name, $cookie_value);
 
             CloseDBconnection($conn);
             RedirectTo('profile.php');

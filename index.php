@@ -1,15 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<?php include 'header.html' ?>
+<?php require_once 'user_validation.php'; ?>
+<?php require_once 'header.php' ?>
 
 <body>
 
 <div class="brand">Best Friend Ever</div>
 <div class="address-bar">Everything about dogs</div>
 
-<?php include 'navigation.php' ?>
-<?php include 'common_functions.php' ?>
+<?php require_once 'navigation.php' ?>
+<?php require_once 'common_functions.php' ?>
 
 <?php
 

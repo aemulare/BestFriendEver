@@ -1,7 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php session_start();
+require_once 'user_validation.php';
+require_once 'common_functions.php';
 
-<<?php include 'header.html' ?>
+// to prevent access to this page for unauthorized users
+if(!is_logged())
+    RedirectTo('index.php');
+?>
+
+
+<?php include 'header.php' ?>
 
 <body>
 

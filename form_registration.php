@@ -1,7 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<?php require_once('header.html') ?>
+<?php session_start(); ?>
+<?php require_once('header.php') ?>
 
 <script type="text/javascript" src="js/jquery.js"></script>
 <script type="text/javascript">

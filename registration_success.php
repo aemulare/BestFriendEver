@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 include 'common_functions.php';
 
 // to prevent direct access to this page
@@ -8,10 +10,7 @@ if(!isset($_GET["nickname"]))
 ?>
 
 
-<!DOCTYPE html>
-<html lang="en">
-
-<?php include 'header.html' ?>
+<?php include 'header.php' ?>
 
 
 <body>

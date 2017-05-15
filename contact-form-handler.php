@@ -1,4 +1,6 @@
 <?php
+
+
 // SENDGRID ==============================================
 require 'vendor/autoload.php';
 
@@ -6,7 +8,7 @@ require 'vendor/autoload.php';
 
 
 // Emails form data to you and the person submitting the form and adds it to a database
-include 'common_functions.php';
+//include 'common_functions.php';
 
 // Connect to db
 $conn = OpenDBconnection();
@@ -60,7 +62,6 @@ function msg()
 {
     return $_POST['message'];
 }
-
 
 
 CloseDBconnection($conn);

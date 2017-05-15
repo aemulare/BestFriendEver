@@ -1,8 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php session_start();
+
+require_once 'common_functions.php';
+
+// to prevent direct access to this page
+if(!isset($_POST['message']))
+    RedirectTo('index.php');
+?>
 
 <?php include 'contact-form-handler.php' ?>
-<?php include 'header.html' ?>
+<?php include 'header.php' ?>
 
 
 <body>

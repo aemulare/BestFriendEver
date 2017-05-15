@@ -1,11 +1,9 @@
 <?php
+session_start();
 include 'common_functions.php';
 
-$cookie_name = "user_status";
-$cookie_value = null;
-setcookie($cookie_name, $cookie_value);
+session_destroy();
 
-session_unset();
 RedirectTo('index.php');
 
 ?>
