@@ -1,6 +1,7 @@
 <?php
-include 'common_functions.php';
 session_start();
+include 'common_functions.php';
+
 
 $error='';
 $id = $password = $email = "";
@@ -16,10 +17,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST) )
         $conn = OpenDBconnection();
         $sql = " SELECT id FROM users WHERE email = '$email' AND password = sha1($password) ";
         $result = $conn->query($sql);
-        $data = $result->fetch_assoc();
-        $id = $data['id'];
         if ($result !== false)
         {
+            $data = $result->fetch_assoc();
+            $id = $data['id'];
+
+            $result->free();
             $_SESSION['time'] = time();
             $_SESSION['user_status'] = "authorized";
 
@@ -32,6 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST) )
         }
         else
         {
+            $result->free();
             CloseDBconnection($conn);
             $error = "Username or Password is invalid";
             RedirectTo('form_login.php?error='.$error);
