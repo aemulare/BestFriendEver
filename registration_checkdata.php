@@ -18,6 +18,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST) )
         {
             echo "<div class='text-danger'>Nickname is already taken.</div>";
         }
+        else{
+            echo "<div class='text-success hidden'>OK</div>";
+        }
 
         CloseDBconnection($conn);
         exit();
@@ -34,7 +37,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST) )
         if($num > 0)
         {
             echo "<div class='text-danger'>Email already exist.</div>";
-
+        }
+        else{
+            echo "<div class='text-success hidden'>OK</div>";
         }
 
         CloseDBconnection($conn);

@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php require_once "user_validation.php";
+
+?>
+
 <body>
 <!-- Navigation -->
 <nav class="navbar navbar-default" role="navigation">
@@ -21,8 +25,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
                 <li>
-                    <a href="index.php">Home</a>
-                </li>
+                    <a href="index.php">Home</a></li>
                 <li>
                     <a href="gallery.php">Gallery</a>
                 </li>
@@ -32,12 +35,26 @@
                 <li>
                     <a href="form_contact.php">Contact</a>
                 </li>
+
+                <?php
+                if(is_logged())
+                    echo "
                 <li>
-                    <a href="form_registration.php">Register</a>
+                    <a href='profile.php'>My Profile</a>
                 </li>
                 <li>
-                    <a href="profile.php">My Profile</a>
+                    <a href='logout.php'>Logout</a>
+                </li>";
+
+                else echo "
+                <li>
+                    <a href='form_registration.php'>Register</a>
                 </li>
+                <li>
+                    <a href='form_login.php'>Login</a>
+                </li>";
+                ?>
+
             </ul>
         </div>
         <!-- /.navbar-collapse -->

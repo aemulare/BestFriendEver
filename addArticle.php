@@ -2,23 +2,29 @@
 
 
 include 'common_functions.php';
-$conn = OpenDBconnection();
+include 'user_validation.php';
 
-// Receive and sanitize input
-$title = mysqli_real_escape_string($conn, $_POST['title']);
-$content = mysqli_real_escape_string($conn, $_POST['content']);
-//$picture = mysqli_real_escape_string($conn, $_POST['picture']);
+if(is_logged())
+{
+    $conn = OpenDBconnection();
 
-$userid = $_POST['user_id'];
-$date = date('Y-m-d H:i:s');
+    // Receive and sanitize input
+    $title = mysqli_real_escape_string($conn, $_POST['title']);
+    $content = mysqli_real_escape_string($conn, $_POST['content']);
 
-// write to db
-$sql = "INSERT INTO articles (title, content, picture, user_id, created_at) VALUES ('$title', '$content', null,  19, '$date')";
-$result = $conn->query($sql);
+    $userid = $_POST['user_id'];
+    $date = date('Y-m-d H:i:s');
+    $id = $_COOKIE['user_id'];
+
+    // write to db
+    $sql = "INSERT INTO articles (title, content, picture, user_id, created_at) VALUES ('$title', '$content', null, '$id', '$date')";
+    $result = $conn->query($sql);
 
 
-CloseDBconnection($conn);
+    CloseDBconnection($conn);
 
-RedirectTo('blog.php');
+    RedirectTo('blog.php');
+}
+
 
 ?>

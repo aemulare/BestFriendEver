@@ -18,7 +18,7 @@ if(!isset($_GET["nickname"]))
 <div class="brand">Best Friend Ever</div>
 <div class="address-bar">Everything about dogs</div>
 
-<?php include 'navigation.html' ?>
+<?php include 'navigation.php' ?>
 
 <div class="container">
     <div class="row">

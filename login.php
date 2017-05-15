@@ -1,35 +1,45 @@
 <?php
 include 'common_functions.php';
+session_start();
 
-session_start();        // Starting Session
-$error='';              // Variable To Store Error Message
+$error='';                  // variable to store error message
+$id = $password = $email = "";
 
-if (isset($_POST['submit'])) {
-    if (empty($_POST['email']) || empty($_POST['password']))
+
+if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST) )
+{
+    $email = test_input($_POST['email']);
+    $password = test_input($_POST['password']);
+
+    if(!(empty($email) || empty($password)))
     {
-        $error = "Username or Password is invalid";
-    }
-    else
-    {
-        $email=$_POST['email'];
-        $password=$_POST['password'];
-
         $conn = OpenDBconnection();
-
-        $sql = 'SELECT * FROM users WHERE email ='.$email.' AND password = '.$password;
+        $sql = " SELECT id FROM users WHERE email = '$email' AND password = sha1($password) ";
         $result = $conn->query($sql);
-
-        $rows =  $result->num_rows;
-        if ($rows == 1)
+        $data = $result->fetch_assoc();
+        $id = $data['id'];
+        if ($result !== false)
         {
-            $_SESSION['login_user'] = $email;       // Initializing Session
+            $_SESSION['time'] = time();
+            $cookie_name = "user_id";
+            $cookie_value = $id;
+            setcookie($cookie_name, $cookie_value, time() + (86400 * 30), "/"); // 86400 = 1 day
+
+            $cookie_name = "user_status";
+            $cookie_value = "authorized";
+            setcookie($cookie_name, $cookie_value);
+
+            CloseDBconnection($conn);
             RedirectTo('profile.php');
         }
         else
-            {
+        {
+            CloseDBconnection($conn);
             $error = "Username or Password is invalid";
+            RedirectTo('form_login.php?error='.$error);
         }
-        CloseDBconnection($conn);
+
     }
 }
+
 ?>

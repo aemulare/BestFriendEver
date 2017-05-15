@@ -14,7 +14,7 @@
         {
             $.ajax({
                 type: 'post',
-                url: 'checkdata.php',
+                url: 'registration_checkdata.php',
                 data: {
                     nickname:name,
                 },
@@ -42,11 +42,11 @@
     {
         var usr_email=document.getElementById( "email" ).value;
 
-        if(email)
+        if(usr_email)
         {
             $.ajax({
                 type: 'post',
-                url: 'checkdata.php',
+                url: 'registration_checkdata.php',
                 data: {
                     email:usr_email,
                 },
@@ -92,7 +92,7 @@
 <div class="brand">Best Friend Ever</div>
 <div class="address-bar">Everything about dogs</div>
 
-<?php include 'navigation.html' ?>
+<?php include 'navigation.php' ?>
 
 
 <div class="container">

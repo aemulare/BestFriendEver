@@ -3,17 +3,17 @@
 // opens db connection
 function OpenDBconnection()
 {
-    $servername = "127.0.0.1:8889";
-    $username = "root";
-    $password = "root";
-    $database = "bestfriendever";
+//    $servername = "127.0.0.1:8889";
+//    $username = "root";
+//    $password = "root";
+//    $database = "bestfriendever";
 
-//    $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-//
-//    $servername = $url["host"];
-//    $username = $url["user"];
-//    $password = $url["pass"];
-//    $database = substr($url["path"], 1);
+    $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
+
+    $servername = $url["host"];
+    $username = $url["user"];
+    $password = $url["pass"];
+    $database = substr($url["path"], 1);
 
 // Create connection
     $conn = new mysqli($servername, $username, $password, $database);
@@ -52,7 +52,7 @@ function RedirectTo($dest)
 }
 
 
-// sanitizes input
+// cleans input
 function test_input($data)
 {
     $data = trim($data);
@@ -77,7 +77,6 @@ function isValidEmail($email)
 }
 
 
-
 // last id from database table
 function lasdID()
 {
@@ -85,6 +84,11 @@ function lasdID()
     return $stmt;
 }
 
-
+// get article date
+function article_date($date)
+{
+    $date = new DateTime($date);
+    return $date->format('F d, Y');
+}
 
 ?>

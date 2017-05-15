@@ -8,7 +8,7 @@
 <div class="brand">Best Friend Ever</div>
 <div class="address-bar">Everything about dogs</div>
 
-<?php include 'navigation.html' ?>
+<?php include 'navigation.php' ?>
 
 <div class="container">
     <div class="row">
@@ -17,7 +17,7 @@
                 <hr>
                     <div class="col-12-lg text-center">
                         <h2 class="intro-text"><strong>Welcome</strong> to Our <strong>blog</strong></h2>
-                        <a href="article.php" class="btn btn-default btn-lg">Add Article</a>
+                        <?php if(is_logged()) echo "<a href='form_new_article.php' class='btn btn-default btn-lg'>Add Article</a>";?>
                     </div>
 
                 <hr>
@@ -25,14 +25,6 @@
 
             <?php include('blog-handler.php') ?>
 
-            <!--<div class="col-lg-12 text-center">
-                <ul class="pager">
-                    <li class="previous"><a href="#">&larr; Older</a>
-                    </li>
-                    <li class="next"><a href="#">Newer &rarr;</a>
-                    </li>
-                </ul>
-            </div>-->
         </div>
     </div>
 

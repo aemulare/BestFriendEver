@@ -8,7 +8,7 @@
 <div class="brand">Best Friend Ever</div>
 <div class="address-bar">Everything about dogs</div>
 
-<?php include 'navigation.html' ?>
+<?php include 'navigation.php' ?>
 
 <div class="container">
     <div class="row">
@@ -23,14 +23,6 @@
 
             <?php include 'blog-article-handler.php' ?>
 
-            <!--<div class="col-lg-12 text-center">
-                <ul class="pager">
-                    <li class="previous"><a href="#">&larr; Older</a>
-                    </li>
-                    <li class="next"><a href="#">Newer &rarr;</a>
-                    </li>
-                </ul>
-            </div>-->
         </div>
     </div>
 

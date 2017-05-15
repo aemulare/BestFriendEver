@@ -2,11 +2,6 @@
 
 include 'common_functions.php';
 
-function article_date($date)
-{
-    $date = new DateTime($date);
-    return $date->format('F d, Y');
-}
 
 // display only 365 symbols for big articles
 function truncate_article($string)
@@ -21,15 +16,13 @@ function isTruncated($string)
 }
 
 
-
-
 $conn = OpenDBconnection();
 
 // ********** PAGING SCRIPT ******************************************************************
 
 // find out how many rows are in the table
 $sql = "SELECT COUNT(*) AS SUM FROM articles";
-$result = $conn->query($sql) or trigger_error("SQL", E_USER_ERROR);
+$result = $conn->query($sql);
 $num =  mysqli_fetch_assoc($result);
 $numrows = $num['SUM'];
 $result->close();
@@ -68,7 +61,7 @@ $sql = "SELECT a.id, a.title, a.content, a.picture, a.user_id, a.created_at, usr
         FROM articles as a
         INNER JOIN users as usr ON a.user_id = usr.id
         ORDER BY a.created_at DESC LIMIT   $offset , $rowsperpage";
-$result = $conn->query($sql) or trigger_error("SQL", E_USER_ERROR);
+$result = $conn->query($sql);
 
 
 // while there are rows to be fetched...

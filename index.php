@@ -8,7 +8,7 @@
 <div class="brand">Best Friend Ever</div>
 <div class="address-bar">Everything about dogs</div>
 
-<?php include 'navigation.html' ?>
+<?php include 'navigation.php' ?>
 <?php include 'common_functions.php' ?>
 
 <?php
@@ -36,6 +36,7 @@ CloseDBconnection($conn);
         <div class="box">
             <div class="col-lg-12 text-center">
                 <div id="carousel-example-generic" class="carousel slide">
+
                     <!-- Indicators -->
                     <ol class="carousel-indicators hidden-xs">
                         <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -45,17 +46,17 @@ CloseDBconnection($conn);
 
                     <?php
                     echo "<!-- Wrapper for slides -->
-                    <div class=\"carousel-inner\">
-                        <div class=\"item active\">
-                            <img class=\"img-responsive img-full\" src=\"" . imageSource($slides[0]). "\" alt=\"\">
+                    <div class='carousel-inner'>
+                        <div class='item active'>
+                            <img class='img-responsive img-full' src='". imageSource($slides[0])."' alt=''>
                         </div>
-                        <div class=\"item\">
-                            <img class=\"img-responsive img-full\" src=\"" . imageSource($slides[1]). "\" alt=\"\">
+                        <div class='item'>
+                            <img class='img-responsive img-full' src='". imageSource($slides[1])."' alt=''>
                         </div>
-                        <div class=\"item\">
-                            <img class=\"img-responsive img-full\" src=\"" . imageSource($slides[2]). "\" alt=\"\">
+                        <div class='item'>
+                            <img class='img-responsive img-full' src='". imageSource($slides[2])."' alt=''>
                         </div>
-                    </div>"
+                    </div>";
                     ?>
 
                     <!-- Controls -->
