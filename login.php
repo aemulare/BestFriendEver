@@ -17,10 +17,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST) )
         $conn = OpenDBconnection();
         $sql = " SELECT id FROM users WHERE email = '$email' AND password = sha1($password) ";
         $result = $conn->query($sql);
-        if ($result !== false)
+        $data = $result->fetch_assoc();
+        if ($data !== null)
         {
             session_start();
-            $data = $result->fetch_assoc();
+
             $id = $data['id'];
 
             $result->free();
@@ -36,6 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST) )
         }
         else
         {
+
             CloseDBconnection($conn);
             $error = "Username or Password is invalid";
             RedirectTo('form_login.php?error='.$error);
