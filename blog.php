@@ -19,7 +19,6 @@
                         <h2 class="intro-text"><strong>Welcome</strong> to Our <strong>blog</strong></h2>
                         <?php if(is_logged()) echo "<a href='form_new_article.php' class='btn btn-default btn-lg'>Add Article</a>";?>
                     </div>
-
                 <hr>
             </div>
 

@@ -9,7 +9,6 @@ function truncate_article($string)
     return $truncated = (strlen($string) > 365) ? substr($string, 0, 365) . '...' : $string;
 }
 
-
 function isTruncated($string)
 {
     if(strlen($string) > 365) return true;
@@ -68,14 +67,14 @@ $result = $conn->query($sql);
 while ($list = $result->fetch_assoc())
 {
     // echo data
-    echo "<div class=\"col-lg-12 text-center\">
-                <img class=\"img-responsive img-border img-full\" src=\"" . imageSource($list["picture"]) . "\" alt=\"\">
+    echo "<div class='col-lg-12 text-center'>
+                <img class='img-responsive img-border img-full' src='".imageSource($list["picture"])."' alt=''>
                 <h2>" . $list["title"] ."
                     <br>
                     <small>by <strong>".$list["nickname"]."</strong>,&nbsp;". article_date($list["created_at"]). "</small>
                 </h2>
                 <p>". truncate_article($list["content"]) ."</p>
-                <a href=\"blog_article.php?articleId=".$list["id"]. "\" class=\"btn btn-default btn-lg\">Read More</a>
+                <a href='article.php?articleId=".$list["id"]. "' class='btn btn-default btn-lg'>Read More</a>
                <hr>
             </div>";
 } // end while
@@ -95,8 +94,8 @@ function disabledClass($currentPage, $totalpages, $forNext)
 }
 
 
-echo "<div class=\"col-lg-12 text-center\">
-                <ul class=\"pager\">
+echo "<div class='col-lg-12 text-center'>
+                <ul class='pager'>
                     <li class='". disabledClass($currentpage, $totalpages, false) ."'><a href=\"{$_SERVER['PHP_SELF']}?currentpage=$nextpage\">&larr; Older</a></li>
                     <li class='". disabledClass($currentpage, $totalpages, true) ."'><a href=\"{$_SERVER['PHP_SELF']}?currentpage=$prevpage\">Newer &rarr;</a>
                     </li>

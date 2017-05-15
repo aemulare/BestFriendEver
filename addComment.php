@@ -21,7 +21,7 @@ if(is_logged())
 
     CloseDBconnection($conn);
 
-    RedirectTo('blog_article.php?articleId='.$articleID);
+    RedirectTo('article.php?articleId='.$articleID);
 }
 
 ?>

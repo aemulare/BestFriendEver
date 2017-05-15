@@ -1,6 +1,5 @@
 <?php
 
-
 include 'common_functions.php';
 include 'user_validation.php';
 
@@ -20,11 +19,8 @@ if(is_logged())
     $sql = "INSERT INTO articles (title, content, picture, user_id, created_at) VALUES ('$title', '$content', null, '$id', '$date')";
     $result = $conn->query($sql);
 
-
     CloseDBconnection($conn);
-
     RedirectTo('blog.php');
 }
-
 
 ?>

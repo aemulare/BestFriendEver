@@ -21,7 +21,7 @@
                 <hr>
             </div>
 
-            <?php include 'blog-article-handler.php' ?>
+            <?php include 'article-handler.php' ?>
 
         </div>
     </div>
