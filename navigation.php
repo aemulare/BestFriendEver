@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<?php require_once "user_validation.php";
-
-?>
+<?php require_once "user_validation.php"; ?>
 
 <body>
 <!-- Navigation -->
@@ -37,7 +35,7 @@
                 </li>
 
                 <?php
-                if(is_logged())
+                if(isset($_SESSION['user_status']) && $_SESSION['user_status'] === "authorized")
                     echo "
                 <li>
                     <a href='profile.php'>My Profile</a>

@@ -6,24 +6,20 @@ if(!is_logged())
     RedirectTo('index.php');
 ?>
 
+<?php require_once 'header.php' ?>
 
+<body>
+
+<div class="brand">Best Friend Ever</div>
+<div class="address-bar">Everything about dogs</div>
+
+<?php include 'navigation.php' ?>
 
 <?php
 
 $num_comments = $num_articles = $email = $username = $nickname = $member_since = $num_articles = $num_comments = null;
 
 if(is_logged()) {
-
-require_once 'header.php';
-
-echo "
-<body>
-
-<div class='brand'>Best Friend Ever</div>
-<div class='address-bar'>Everything about dogs</div>";
-
-include 'navigation.php';
-
     $id = $_COOKIE['user_id'];
     $conn = OpenDBconnection();
 
@@ -117,14 +113,12 @@ include 'navigation.php';
 ";
 
 }
-
-include 'footer.html';
-include 'Scripts.html';
-
-echo "</body>";
 ?>
 
 
 
+<?php include 'footer.html' ?>
+<?php include 'Scripts.html' ?>
 
+</body>
 
