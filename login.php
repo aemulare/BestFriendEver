@@ -1,5 +1,5 @@
 <?php
-session_start();
+
 include 'common_functions.php';
 
 
@@ -19,6 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST) )
         $result = $conn->query($sql);
         if ($result !== false)
         {
+            session_start();
             $data = $result->fetch_assoc();
             $id = $data['id'];
 
@@ -35,7 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST) )
         }
         else
         {
-            $result->free();
             CloseDBconnection($conn);
             $error = "Username or Password is invalid";
             RedirectTo('form_login.php?error='.$error);
