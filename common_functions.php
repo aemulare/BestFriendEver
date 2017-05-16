@@ -3,13 +3,14 @@
 // opens db connection
 function OpenDBconnection()
 {
+      // For my local DB test
 //    $servername = "127.0.0.1:8889";
 //    $username = "root";
 //    $password = "root";
 //    $database = "bestfriendever";
 
+    // For DB on heroku.com
     $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-
     $servername = $url["host"];
     $username = $url["user"];
     $password = $url["pass"];

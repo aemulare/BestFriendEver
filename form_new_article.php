@@ -32,7 +32,7 @@ if(!is_logged())
                 <form role="form" action="addArticle.php" method="post">
                     <div class="row">
                         <div class="form-group col-lg-4">
-                            <label>Tttle</label>
+                            <label>Title</label>
                             <input type="text" name="title" class="form-control">
                         </div>
                         <div class="clearfix"></div>
